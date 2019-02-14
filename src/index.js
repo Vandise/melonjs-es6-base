@@ -1,4 +1,5 @@
 import Game from './client/game';
+import BootScreen from './client/screens/loading/boot';
 
 class Bootstrap {
 
@@ -15,6 +16,8 @@ class Bootstrap {
         me.utils.function.defer(me.plugin.register, this, me.debug.Panel, "debug");
       });
     }
+
+    me.state.set(me.state.LOADING, new BootScreen());
 
     // Initialize the audio.
     me.audio.init("mp3,ogg");
