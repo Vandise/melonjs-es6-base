@@ -1,8 +1,12 @@
 import ProgressBar from '../util/progressBar';
+import MelonJSTextLogo from '../util/melonJsTextLogo';
+import * as dom from '../../../util/dom';
 
-class BootScreen extends me.ScreenObject {
+class BootScreen extends dom.globals.me.ScreenObject {
 
   onResetEvent() {
+    const { me } = dom.globals;
+
     me.game.world.addChild(new me.ColorLayer("background", "#202020", 0), 0);
 
     const progressBar = new ProgressBar(
@@ -23,9 +27,12 @@ class BootScreen extends me.ScreenObject {
     );
 
     me.game.world.addChild(progressBar, 1);
+    me.game.world.addChild(new MelonJSTextLogo(me.video.renderer.getWidth(), me.video.renderer.getHeight()), 1);
   }
 
   onDestroyEvent() {
+    const { me } = dom.globals;
+
     me.event.unsubscribe(this.loaderHdlr);
     me.event.unsubscribe(this.resizeHdlr);
     this.loaderHdlr = this.resizeHdlr = null;

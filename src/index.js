@@ -1,9 +1,13 @@
 import Game from './client/game';
 import BootScreen from './client/screens/loading/boot';
+import * as dom from './util/dom';
 
 class Bootstrap {
 
   constructor() {
+
+    const { me } = dom.globals;
+
     // Initialize the video.
     if (!me.video.init(600, 400, { wrapper : "screen", scale: 1.75 })) {
       alert("Your browser does not support HTML5 canvas.");

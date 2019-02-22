@@ -1,4 +1,6 @@
-class ProgressBar extends me.Renderable {
+import * as dom from '../../../util/dom';
+
+class ProgressBar extends dom.globals.me.Renderable {
 
   constructor(x, y, w, h) {
     super(x, y, w, h);
